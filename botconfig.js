@@ -1,5 +1,6 @@
+require("dotenv").config();
 module.exports = {
-  Admins: ["UserID", "UserID"], //Admins of the bot
+  Admins: ["253150548000243713", "552809688895324295"], //Admins of the bot
   ExpressServer: true, //If you wanted to make the website run or not
   DefaultPrefix: process.env.Prefix || ">", //Default prefix, Server Admins can change the prefix
   Port: 3000, //Which port website gonna be hosted
@@ -12,13 +13,12 @@ module.exports = {
   DefaultVolume: 100, //Sets the default volume of the bot, You can change this number anywhere from 1 to 100
   CallbackURL: "/api/callback", //Discord OAuth2 Callback URL
   "24/7": false, //If you want the bot to be stay in the vc 24/7
-  CookieSecret: "Pikachu is cute", //A Secret like a password
-  IconURL:
-    "https://raw.githubusercontent.com/SudhanPlayz/Discord-MusicBot/master/assets/logo.gif", //URL of all embed author icons | Dont edit unless you dont need that Music CD Spining
+  CookieSecret: "Follow the white rabbit", //A Secret like a password
+  IconURL: "./assets/logo.jpg", //URL of all embed author icons | Dont edit unless you dont need that Music CD Spining
   EmbedColor: "RANDOM", //Color of most embeds | Dont edit unless you want a specific color instead of a random one each time
   Permissions: 2205281600, //Bot Inviting Permissions
-  Website: process.env.Website || "http://localhost", //Website where it was hosted at includes http or https || Use "0.0.0.0" if you using Heroku
-  
+  Website: process.env.Website || "http://localhost:8080", //Website where it was hosted at includes http or https || Use "0.0.0.0" if you using Heroku
+
   Presence: {
     status: "online", // You can show online, idle, and dnd
     name: "Music", // The message shown
@@ -28,9 +28,9 @@ module.exports = {
   //Lavalink
   Lavalink: {
     id: "Main",
-    host: "host name or IP",
-    port: 80, // The port that lavalink is listening to. This must be a number!
-    pass: "your password",
+    host: "167.172.46.202",
+    port: 8081, // The port that lavalink is listening to. This must be a number!
+    pass: "shire",
     secure: false, // Set this to true if the lavalink uses SSL or you're hosting lavalink on repl.it
   },
 
