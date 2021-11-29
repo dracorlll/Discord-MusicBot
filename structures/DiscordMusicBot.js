@@ -1,12 +1,9 @@
 const { Collection, Client, MessageEmbed } = require("discord.js");
 const { LavasfyClient } = require("lavasfy");
 const { Manager } = require("erela.js");
-const { Server } = require("socket.io");
-const http = require("http");
 const Jsoning = require("jsoning");
 const fs = require("fs");
 const path = require("path");
-const Express = require("express");
 const Logger = require("./Logger");
 const prettyMilliseconds = require("pretty-ms");
 const deezer = require("erela.js-deezer");
@@ -46,13 +43,6 @@ class DiscordMusicBot extends Client {
 
     this.LoadCommands();
     this.LoadEvents();
-
-    //Web Stuff
-    this.server = Express();
-    this.http = http.createServer(this.server);
-    this.server.use("/", require("../api"));
-    this.io = new Server(this.http);
-    require("../api/socket")(this.io);
 
     //Utils
     this.ProgressBar = require("../util/ProgressBar");
@@ -254,11 +244,6 @@ class DiscordMusicBot extends Client {
 
   build() {
     this.login(this.botconfig.Token);
-    if (this.botconfig.ExpressServer) {
-      this.http.listen(process.env.PORT || this.botconfig.Port, () =>
-        this.log("Web Server has been started")
-      );
-    }
   }
 
   RegisterSlashCommands() {

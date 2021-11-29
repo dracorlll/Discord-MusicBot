@@ -321,8 +321,7 @@
   <script>
     $(document).ready(() => {
       $.get("/api/user", (data) => {
-        data.user.guilds.forEach((Guild) => {
-          if (!Guild.hasPerms) return;
+        data.forEach((Guild) => {
           $("#servers").append(`
 <img class="server-${Guild.id}" onclick="window.location = '/servers/${
             Guild.id

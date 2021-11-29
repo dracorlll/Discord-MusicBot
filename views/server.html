@@ -409,8 +409,6 @@
         }
         $(".server-name").text(Guild.name);
       });
-
-      var socket = io();
       socket.emit("server", window.location.pathname.split("/")[2]);
 
       socket.on("server", (data) => {

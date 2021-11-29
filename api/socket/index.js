@@ -6,6 +6,10 @@ const prettyMilliseconds = require("pretty-ms");
  */
 module.exports = (io) => {
   io.on("connection", (socket) => {
+    socket.on("allServer", () => {
+      const Client = require("../../index");
+      socket.emit("allServer", Client.guilds.cache);
+    });
     //Bot's Main Page
     socket.on("dashboard", () => {
       if (socket.Dashboard) clearInterval(socket.Dashboard);

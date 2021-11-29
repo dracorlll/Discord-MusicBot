@@ -38,6 +38,7 @@ passport.use(
       scope: "identify guilds",
     },
     function (accessToken, refreshToken, profile, done) {
+      console.log("profile", profile);
       //User logged in yay!
       process.nextTick(function () {
         return done(null, profile);
@@ -72,6 +73,7 @@ passport.serializeUser(function (user, done) {
 });
 
 passport.deserializeUser(function (obj, done) {
+  console.log(obj);
   done(null, obj);
 });
 
