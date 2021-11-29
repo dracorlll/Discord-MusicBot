@@ -19,6 +19,11 @@ module.exports = {
    * @param {*} param3
    */
   run: async (client, message, args, { GuildDB }) => {
+    if (Date.now() > GuildDB.expire)
+      return client.sendTime(
+        message.channel,
+        "❌ | **Botunzun Kullanım süresi dolmuştur. Kullanmaya devam etmek için iletişim adresimiz: https://www.google.com **"
+      );
     if (!message.member.voice.channel)
       return client.sendTime(
         message.channel,
@@ -398,7 +403,7 @@ module.exports = {
               );
             return interaction.send(SongAddedEmbed);
 
-           case "PLAYLIST_LOADED":
+          case "PLAYLIST_LOADED":
             player.queue.add(res.tracks);
             await player.play();
             let SongAdded = new MessageEmbed();
